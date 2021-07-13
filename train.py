@@ -10,7 +10,6 @@ if __name__ == '__main__':
     dataset = DataLoader(opt)
     dataset_size = len(dataset)
     print('#training meshes = %d' % dataset_size)
-
     model = create_model(opt)
     writer = Writer(opt)
     total_steps = 0

@@ -4,6 +4,7 @@ from data.base_dataset import BaseDataset
 from util.util import is_mesh_file, pad
 from models.layers.mesh import Mesh
 
+
 class ClassificationData(BaseDataset):
 
     def __init__(self, opt):
@@ -53,7 +54,7 @@ class ClassificationData(BaseDataset):
                 continue
             for root, _, fnames in sorted(os.walk(d)):
                 for fname in sorted(fnames):
-                    if is_mesh_file(fname) and (root.count(phase)==1):
+                    if is_mesh_file(fname) and (root.count(phase) == 1):
                         path = os.path.join(root, fname)
                         item = (path, class_to_idx[target])
                         meshes.append(item)
