@@ -34,7 +34,7 @@ class BaseOptions:
         self.parser.add_argument('--serial_batches', action='store_true', help='if true, takes meshes in order, otherwise takes them randomly')
         self.parser.add_argument('--seed', type=int, help='if specified, uses seed')
         # visualization params
-        self.parser.add_argument('--export_folder', type=str, default='', help='exports intermediate collapses to this folder')
+        self.parser.add_argument('--export_folder', type=str, default='meshes', help='exports intermediate collapses to this folder')
         #
         self.initialized = True
 
