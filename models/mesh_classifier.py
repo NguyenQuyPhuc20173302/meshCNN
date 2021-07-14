@@ -2,7 +2,7 @@ import torch
 from . import networks
 from os.path import join
 from util.util import seg_accuracy, print_network
-
+import numpy as np
 
 class ClassifierModel:
     """ Class for training Model weights
@@ -111,9 +111,11 @@ class ClassifierModel:
             # compute number of correct
             pred_class = out.data.max(1)[1]
             label_class = self.labels
+            pre_ = np.array([int(i) for i in pred_class])
+            label_origin = np.array([int(i) for i in label_class])
             self.export_segmentation(pred_class.cpu())
             correct = self.get_accuracy(pred_class, label_class)
-        return correct, len(label_class)
+        return correct, len(label_class), pre_, label_origin
 
     def get_accuracy(self, pred, labels):
         """computes accuracy for classification / segmentation """
